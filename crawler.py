@@ -55,7 +55,7 @@ import pandas as pd#数据处理库
 
 data=pd.DataFrame(de)#转换为数据框格式
 
-data.to_excel('C:\\Users\\Administrator\\Desktop\\二手房价\\房数据.xlsx')#导出数据
+data.to_excel('C:\\Users\\Administrator\\Desktop\\二手房价\\data.xlsx')#导出数据
 
 
 
