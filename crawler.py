@@ -32,7 +32,24 @@ s=BeautifulSoup(res.text,'lxml')
 [i.b.text for i in s.find_all(name='span',class_='red')]
 
 
+#正式爬虫部分
 
+import pandas as pd
+import numpy as py
+import time
+mz=[]
+xx=[]
+jg=[]
+for i in range(1,101):
+    res=requests.get('https://sy.esf.fang.com/house/i3'+str(i)+'/?rfss=1-8419940acd08438324-06',headers=h)
+    s=BeautifulSoup(res.text,'lxml')
+    mz=mz+[re.sub('\s','',j) for j in [i.text for i in s.find_all(name='span',class_='tit_shop')]]
+    xx=xx+[re.sub('\s','',j) for j in [i.text for i in s.find_all(name='p',class_='tel_shop')]]
+    jg=jg+[i.b.text for i in s.find_all(name='span',class_='red')]
+    time.sleep(10)
+    print(i)
+
+de={'标题':mz,'信息':xx,'价格':jg}#转换为字典格式
 
 
 
