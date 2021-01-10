@@ -68,16 +68,6 @@ data1['年份'].value_counts()
 
 
 
-#去除噪音值
-data1['年份'][data1['年份']=='何玉洁']=None
-data1['年份'][data1['年份']=='方帅']=None
-data1['年份'][data1['年份']=='徐浩']=None
-data1['年份'][data1['年份']=='史春雨']=None
-data1['年份'][data1['年份']=='白亮']=None
-data1['年份'][data1['年份']=='孙明阳']=None
-data1['年份'][data1['年份']=='张宇池']=None
-
-
 data1.info()#查看数据类型，将面积，价格改为数值类类型
 
 
@@ -134,13 +124,6 @@ plt.show()
 
 plt.figure(figsize=(10,8))
 sns.boxplot(data1['朝向'],np.log(data1['价格']))#对数化处理价格
-plt.show()
-
-
-
-plt.figure(figsize=(10,8))
-sns.barplot(data1['年份'],data1['价格'],errwidth=0,saturation=0.6)#没有对数化，比较年份与价格关系
-plt.xticks(rotation=45)#设置坐标轴字体角度
 plt.show()
 
 
