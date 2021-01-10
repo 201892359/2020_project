@@ -4,7 +4,7 @@
 
 
 import pandas as pd
-data=pd.read_excel('房数据.xlsx')#导入数据
+data=pd.read_excel('data.xlsx')#导入数据
 
 
 
