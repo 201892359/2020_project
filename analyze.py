@@ -94,4 +94,53 @@ data1['面积']=data1['面积'].astype('float')
 
 data1.info()
 
-data1
+
+
+# ### 可视化部分
+
+import matplotlib.pyplot as plt#画图的库
+import seaborn as sns#画图的库
+sns.set(style="darkgrid")#设置画图风格
+
+
+
+import numpy as np#数据处理库
+plt.figure(figsize=(10,8))
+plt.rcParams['font.sans-serif']=['SimHei']#设置显示中文
+plt.rcParams['axes.unicode_minus'] = False#设置显示中文
+plt.hist(np.log(data1['价格']),bins=50)#对数化处理价格,使其正态分布
+plt.show()
+
+
+
+#解决中文显示问题
+plt.figure(figsize=(10,8))
+sns.boxplot(data1['房型'],np.log(data1['价格']))#画图，将价格对数化处理，图更好看
+plt.show()#展示图
+
+
+
+plt.figure(figsize=(10,8))#设置画布
+plt.scatter(data1['面积'],data1['价格'])#面积价格图
+plt.show()
+
+
+
+plt.figure(figsize=(10,8))
+sns.boxplot(data1['层数'],np.log(data1['价格']))#对数化处理价格
+plt.show()
+
+
+
+plt.figure(figsize=(10,8))
+sns.boxplot(data1['朝向'],np.log(data1['价格']))#对数化处理价格
+plt.show()
+
+
+
+plt.figure(figsize=(10,8))
+sns.barplot(data1['年份'],data1['价格'],errwidth=0,saturation=0.6)#没有对数化，比较年份与价格关系
+plt.xticks(rotation=45)#设置坐标轴字体角度
+plt.show()
+
+
